@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+
+    <body>
+        <%- include('partials/_header.ejs') %>
+
+            <div class="main">
+                <div class="container">
+                    <div class="main__inner">
+                        <div class="main-img">
+                            <img src="images/main.jpg" alt="">
+                        </div>
+                        <div class="main-offer">
+                            if you want to feel yourself happier, you choosed right site.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cats">
+                <div class="container">
+                    <div class="cards">
+                        <% if(cats.length !=0) {%>
+                            <% cats.forEach(cat=> { %>
+                                <a class="card" href="/cats/<%=cat.id%>">
+                                    <div class="card-image">
+                                        <% if(cat.cats_tumb !== null) { %>
+                                            <img src="<%=cat.cats_tumb %>" alt="">
+                                        <% } else {%>
+                                            <img src="images/cat-galleryError.png" alt="">
+                                            <% }  %>   
+                                    </div>
+                                    <div class="card-info">
+                                        <div class="card-labels">
+                                            <div class="card-label">name</div>
+                                            <div class="card-label">birthdate</div>
+                                            <div class="card-label">petshop</div>
+                                            <div class="card-label">adress</div>
+                                            <div class="card-label">price</div>
+                                        </div>
+                                        <div class="card-datas">
+                                            <div class="card-data">
+                                                <%= cat.name %>
+                                            </div>
+                                            <div class="card-data date">
+                                                <%= cat.date_birth %>
+                                            </div>
+                                            <div class="card-data">
+                                                <%= cat.petshop_name %>
+                                            </div>
+                                            <div class="card-data">
+                                                <%= cat.adress %>
+                                            </div>
+                                            <div class="card-data price">
+                                                <%= cat.price %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <%})%>
+                                    <% } %>
+
+                    </div>
+                </div>
+            </div>
+            <%- include('partials/_footer.ejs') %>
+
+
+                <script src="/js/main.js"></script>
+    </body>
+
+</html>
