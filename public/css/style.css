@@ -39,6 +39,10 @@ body {
     color: var(--font-color);
 }
 
+.header-menu {
+    display: none;
+}
+
 .nav__link {
     font-size: 24px;
     font-weight: 300;
@@ -91,13 +95,20 @@ body {
     justify-content: space-between;
 }
 
-.card {
+.card, .cat-card {
     width: 25.3333%;
     border-radius: 6px;
     margin-bottom: 90px;
     box-shadow: 4px -4px 40px 4px rgba(0, 0, 0, 0.04);
     text-decoration: none;
     color: var(--font-color);
+    transition: .3s ease-in-out;
+}
+
+
+
+.cat-card:hover {
+    box-shadow: 4px -4px 40px 4px rgba(0, 0, 0, 0.2);
 }
 
 .card-image {
@@ -424,8 +435,22 @@ footer {
     margin-right: 30px;
 }
 
+.file {
+    position: relative;
+}
+
 .file::-webkit-file-upload-button {
     visibility: hidden;
+}
+
+.file::before {
+    content: '';
+    background: url('../images/add.svg') 0 0 / 100% no-repeat;
+    width: 25px;
+    height: 25px;
+    top: 50%;
+    transform: translate(0, -50%);
+    position: absolute;
 }
 
 .form-part input, textarea, select, option {
@@ -455,10 +480,13 @@ footer {
     right: 15px;
     transform: translate(-50%, -50%);
     position: absolute;
+    pointer-events: none;
 }
 
 select {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .form-part select {
@@ -475,4 +503,124 @@ select {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: transparent;
     padding: 17px 0px;
+}
+
+/* ============= MOBILE RESOLUTION ===================== */
+
+@media (max-width: 500px) {
+    header {
+        position: fixed;
+        background-color: #fff;
+    }
+    .header__inner {
+        padding: 0;
+        position: relative;
+    }
+    .header-nav {
+        position: absolute;
+    }
+    .header-logo {
+        padding-left: 20px;
+    }
+    .header-menu {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 20px;
+    }
+    
+    .header-nav div{
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        opacity: 0.9;
+        left: 0px;
+        top: 58px;
+        z-index: 10;
+        padding-left: 20px;
+    }
+    .header-nav div .nav__link{
+        margin-bottom: 25px;
+        padding: 20px 0px 20px 0px;
+    }
+    .header-menu img {
+        width: 25%;
+    }
+    .main {
+        padding-top: 70px;
+    }
+    .main__inner {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .main-offer {
+        font-size: 24px;
+        text-align: center;
+        margin: 10px 0px 30px 0px;
+    }
+
+    .main-img img {
+        width: 100%;
+    }
+
+    .cards {
+        display: block;
+    }
+    .card-info {
+        justify-content: space-between;
+    }
+    .card-datas {
+        margin-right: 50px;
+    }
+    .card-data {
+        font-size: 15px;
+    }
+    .card-label {
+        font-size: 15px;
+    }
+    .card-image img {
+        height: 210px;
+        width: 100%;
+    }
+    .cat-card {
+        margin-bottom: 25px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        width: 100%;
+        display: block;
+        border-radius: 6px 6px 6px 6px;
+    }
+
+    .footer__inner {
+        display: block;
+        padding: 20px 0px 10px 20px;
+    }
+
+    .footer-info {
+        margin-bottom: 10px;
+    }
+    .footer-adress {
+        margin-bottom: 5px;
+    }
+    .footer-social__nav {
+        margin-bottom: 10px;
+    }
+    .footer-social__nav li {
+        margin-bottom: 5px;
+    }
+    .hours {
+        margin-bottom: 5px;
+    }
+    .works-hours {
+        margin-bottom: 10px;
+    }
+    .works-info {
+        margin-bottom: 10px;
+    }
+    .footer-text {
+        margin-bottom: 10px;
+    }
+   
 }

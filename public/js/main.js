@@ -20,7 +20,10 @@ clientDate.forEach(elDate => {
 let clientPrice = document.querySelectorAll('.price');
 clientPrice.forEach(elPrice => {
     priceValue = elPrice.innerText;
-    x = parseFloat(priceValue);
-    x = x / 1000;
-    elPrice.innerText = `${x}.000`;
+    elPrice.innerText = triplets(priceValue);
 });
+
+// price formatter
+function triplets(str) {
+    return str.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1.');
+}
