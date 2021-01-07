@@ -1,11 +1,13 @@
 <header>
     <div class="container">
         <div class="header__inner">
-            <div class="header-logo">
-                <a href="/">petshop</a>
+            <div class="header-el">
+                <div class="header-logo">
+                    <a href="/">petshop</a>
+                </div>
+                <span class="header-menu"><img src="/images/menu.svg" alt="" id="navburger"></span>
             </div>
-            <span class="header-menu"><img src="/images/menu.svg" alt=""></span>
-            <div class="header-nav">
+            <div class="header-nav" id="nav">
                 <div class="nav">
                     <a href="/" class="nav__link">home</a>
                     <a href="/about" class="nav__link">about</a>
@@ -16,3 +18,15 @@
         </div>
     </div>
 </header>
+
+<script>
+    let navburger = document.getElementById('navburger');
+    let navbar = document.querySelector('.nav');
+    navburger.addEventListener('click', () => {
+        if(navbar.classList.value == 'nav') {
+            navbar.classList.add('show');
+        } else {
+            navbar.className = 'nav';
+        }
+    });
+</script>
